@@ -33,9 +33,7 @@ def hadamard(p: int, dtype: npt.DTypeLike = float) -> np.ndarray:
     return np.array([[1]], dtype)
 
 
-def phase_oracle(
-    f: npt.ArrayLike, dtype: npt.DTypeLike = float
-) -> np.ndarray:
+def phase_oracle(f: npt.ArrayLike, dtype: npt.DTypeLike = float) -> np.ndarray:
     """
     Encode a binary function into an oracle given its values on the basis
     states.

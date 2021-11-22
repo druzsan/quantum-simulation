@@ -1,5 +1,5 @@
 """
-This script shows how the Grover algorithm
+This script shows how the Grover's algorithm
 (https://en.wikipedia.org/wiki/Grover%27s_algorithm) works.
 """
 
@@ -11,7 +11,7 @@ from quantum_simulation.algorithms import grover_algorithm
 
 
 def main() -> None:
-    print("Grover algorithm.")
+    print("Grover's algorithm.")
     print("\nRight input data.")
     for n in range(2, 8):
         index = random.choices([0, 1], k=n)

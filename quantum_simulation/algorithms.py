@@ -12,9 +12,7 @@ from .qubit import zero
 from .utils import log2, phase_oracle
 
 
-def deutsch_jozsa_algorithm(
-    f: npt.ArrayLike, verbose: Union[bool, int] = False
-) -> str:
+def deutsch_jozsa_algorithm(f: npt.ArrayLike, verbose: Union[bool, int] = False) -> str:
     """
     Deutsch-Jozsa algorithm
     (https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm).
@@ -42,9 +40,7 @@ def deutsch_jozsa_algorithm(
         print(f"Quantum register after phase oracle gate: {qregister}")
     qregister.h()
     if verbose > 1:
-        print(
-            f"Quantum register after the second Hadamard gate: {qregister}"
-        )
+        print(f"Quantum register after the second Hadamard gate: {qregister}")
 
     flag = qregister.real[0]
     if np.allclose(flag, 1):
@@ -60,9 +56,7 @@ def deutsch_jozsa_algorithm(
     return found_type
 
 
-def grover_algorithm(
-    f: npt.ArrayLike, verbose: Union[bool, int] = False
-) -> List[int]:
+def grover_algorithm(f: npt.ArrayLike, verbose: Union[bool, int] = False) -> List[int]:
     """
     Grover's algorithm (https://en.wikipedia.org/wiki/Grover%27s_algorithm).
 
@@ -90,13 +84,9 @@ def grover_algorithm(
     for i in range(k):
         qregister.apply(o_f).r()
         if verbose > 1:
-            print(
-                f"Quantum register after {i + 1}th Grover operator: {qregister}"
-            )
+            print(f"Quantum register after {i + 1}th Grover operator: {qregister}")
 
-    found_index = list(
-        map(int, format(np.square(qregister.real).argmax(), f"0{n}b"))
-    )
+    found_index = list(map(int, format(np.square(qregister.real).argmax(), f"0{n}b")))
     if verbose > 0:
         print(f"Found index: {found_index}")
     return found_index
@@ -132,9 +122,7 @@ def bernstein_vazirani_algorithm(
         print(f"Quantum register after phase oracle gate: {qregister}")
     qregister.h()
     if verbose > 1:
-        print(
-            f"Quantum register after the second Hadamard gate: {qregister}"
-        )
+        print(f"Quantum register after the second Hadamard gate: {qregister}")
 
     found_key = list(map(int, format(qregister.real.argmax(), f"0{n}b")))
     if verbose > 0:
